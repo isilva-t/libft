@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 15:25:23 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/10 15:25:41 by isilva-t         ###   ########.fr       */
+/*   Created: 2024/04/11 10:48:08 by isilva-t          #+#    #+#             */
+/*   Updated: 2024/04/11 12:26:10 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i++] = (unsigned char)c;
+	}
+	return (s);
+}
 /*
-int	ft_isalnum(int c);
-int	ft_isalpha(int c);
-int	ft_isascii(int c);
-int	ft_isdigit(int c);
-int	ft_isprint(int c);
-void	*ft_memset(void *s, int c, size_t n);
-char	*ft_strdup(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *s);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);*/
+#include <stdio.h>
+int	main(void)
+{
+	unsigned char str[] = "teste";
+	int	c;
+	size_t	n;
+
+	c = 'a';
+	n = 2;
+//	ft_memset(str, c, n);
+//	printf("%s", str);
+	printf("%s", (char *)(ft_memset(str, c, n)));
+	return (0);
+}*/

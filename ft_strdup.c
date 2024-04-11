@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 15:25:23 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/10 15:25:41 by isilva-t         ###   ########.fr       */
+/*   Created: 2024/04/11 10:22:11 by isilva-t          #+#    #+#             */
+/*   Updated: 2024/04/11 10:46:56 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
+{
+	auto char *array;
+	auto int i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+		i++;
+	array = malloc(sizeof(char) * i + 1);
+	if (array == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		array[i] = s[i];
+		i++;
+	}
+	array[i] = '\0';
+	return (array);
+}
 /*
-int	ft_isalnum(int c);
-int	ft_isalpha(int c);
-int	ft_isascii(int c);
-int	ft_isdigit(int c);
-int	ft_isprint(int c);
-void	*ft_memset(void *s, int c, size_t n);
-char	*ft_strdup(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *s);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);*/
+#include <stdio.h>
+int	main(void)
+{
+	printf("%s", ft_strdup("teste"));
+}*/
