@@ -23,24 +23,22 @@ SOURCES = \
 	ft_memcmp.c ft_strnstr.c ft_atoi.c \
 	ft_strdup.c main.c
 
-#OBJECTS = ${SOURCES:.c=.o}
+OBJECTS = ${SOURCES:.c=.o}
 NAME = libft.a
-
 ARCHIVE = ar -rc
-
 MSG1 = @echo "Compiled!"
 MSG2 = @echo "Cleaned!"
 
-$(NAME): $(NAME)
-	#${CC} -c ${CFLAGS} $(SOURCES)
-	${CC} -o $(NAME) ${CFLAGS} $(SOURCES)
-	#${ARCHIVE} $(NAME) 
+
+$(NAME): $(NAME) 
+	${CC} -o $(NAME) ${CFLAGS} $(SOURCES) 
 	${MSG1}
+
 
 all: ${NAME}
 
 clean:
-	@rm -rf #${OBJECTS}
+	@rm -rf ${OBJECTS}
 	${MSG2}
 
 fclean: clean

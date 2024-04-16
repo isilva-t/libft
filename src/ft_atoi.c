@@ -36,6 +36,7 @@ int	ft_atoi(const char *nptr)
 }
 /*
 #include <stdio.h>
+
 int	main(int ac, char **av)
 {
 	if (ac != 2)
@@ -44,5 +45,4 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	printf("%d", ft_atoi(&av[1][0]));
-	return (0);
 }*/

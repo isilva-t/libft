@@ -1,0 +1,14 @@
+
+FOR TESTING____________________________________
+
+$(NAME): $(NAME) 
+	${CC} -o $(NAME) ${CFLAGS} $(SOURCES) 
+	${MSG1}
+	
+	
+FOR SEND_______________________________________________
+
+$(NAME): $(NAME) 
+	${CC} -c ${CFLAGS} $(SOURCES) 
+	${ARCHIVE} $(NAME) ${OBJECTS}
+	${MSG1}

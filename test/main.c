@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 11:25:15 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/16 13:17:04 by isilva-t         ###   ########.fr       */
+/*   Created: 2024/04/15 15:08:36 by isilva-t          #+#    #+#             */
+/*   Updated: 2024/04/16 13:16:17 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	*str;
-
-	str = (char *)s;
-	while (*str != c)
-	{
-		if (*str == '\0')
-			return (NULL);
-		str++;
-	}
-	return (str);
-}
-/*
+#include <string.h>
 #include <stdio.h>
+
 int	main(void)
 {
-	int	c = 'e';
-	const char	str[] = "teste";
+	const char src[] = "12345";
+	char ost[] = "destino_com_";
+	size_t size;
+	
+	size = 20;
 
-	printf("%d\n%s\n\n", c, ft_strchr(str, c));
-}*/
+	printf("variavel src 	    : %s\nvariavel dst inicial: %s\n", src, ost);
+	
+	printf("\nreturn da ORIGINAL strlcat: %u\n", strlcat(ost, src, size));
+
+	
+	printf("variavel dst depois ORIGINAL: %s\n", ost);
+
+}

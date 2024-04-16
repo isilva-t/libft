@@ -14,15 +14,18 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'A')
+	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
 	return (c);
 }
 /*
 #include <stdio.h>
-int     main(int ac, char **av)
+#include <ctype.h>
+int     main(void)
 {       
         int     c; 
+        
         c = 'A';
-        printf("antes ft: %d\ndepois ft: %d\n", c, ft_toupper(c));      
+        printf("antes ft: %d\ndepois MINHA: %d\n", c, ft_tolower(c));       
+        printf("antes ft: %d\ndepois ORIGINAL: %d\n", c, tolower(c));
 }*/

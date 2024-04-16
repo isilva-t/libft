@@ -6,24 +6,23 @@
 /*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:08:36 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/15 15:08:44 by isilva-t         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:16:17 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-#include <string.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	char c[] = "123456789abcdef";
-	
-	printf("\n____Original FT____\n");	
-	printf("%s\n\n", strdup(c));
-	
-	printf("______My FT_____\n");
-	printf("%s\n", ft_strdup(c));
-	
-	
+	if (ac != 2)
+	{
+		printf(" number of arguments incorrect, try again!");
+		return (0);
+	}
+	printf("MY:	%d\n", ft_atoi(&av[1][0]));
+	printf("ORIGINAL: %d\n", atoi(&av[1][0]));
 }
