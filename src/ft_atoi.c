@@ -18,7 +18,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	signal = 1;
 	num = 0;
-	while ((nptr[i] != '\0' && nptr[i] >= 't' && nptr[i] <= 'r')
+	while ((nptr[i] != '\0' && nptr[i] >= '\t' && nptr[i] <= '\r')
 		|| nptr[i] == ' ')
 	{
 		i++;
@@ -46,3 +46,12 @@ int	main(int ac, char **av)
 	}
 	printf("%d", ft_atoi(&av[1][0]));
 }*/
+
+/*int	main(void)
+{
+	char t[] =  " \t\v\n\r\f123";
+	
+	printf("MY:	%d\n", ft_atoi(t));
+	printf("ORIGINAL: %d\n", atoi(t));
+}
+*/

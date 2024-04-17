@@ -21,7 +21,7 @@ SOURCES = \
 	ft_toupper.c ft_tolower.c ft_strchr.c \
 	ft_strrchr.c ft_strncmp.c ft_memchr.c \
 	ft_memcmp.c ft_strnstr.c ft_atoi.c \
-	ft_strdup.c main.c
+	ft_strdup.c #main.c ATENCAO QUE ESTA AQUI COMENTADO, OLHA PARA AQUI!!!!!!!!!!!
 
 OBJECTS = ${SOURCES:.c=.o}
 NAME = libft.a
@@ -29,11 +29,11 @@ ARCHIVE = ar -rc
 MSG1 = @echo "Compiled!"
 MSG2 = @echo "Cleaned!"
 
-
+#DELIVER_____________________________
 $(NAME): $(NAME) 
-	${CC} -o $(NAME) ${CFLAGS} $(SOURCES) 
+	${CC} -c ${CFLAGS} $(SOURCES) 
+	${ARCHIVE} $(NAME) ${OBJECTS}
 	${MSG1}
-
 
 all: ${NAME}
 

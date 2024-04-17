@@ -17,20 +17,23 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
-	while (*str != c)
+	if ((char)c == '\0')
+		return ((void *)str + ft_strlen(s));
+	while (*str)
 	{
-		if (*str == '\0')
-			return (NULL);
+		if (*str == (char)c)
+			return (str);
 		str++;
 	}
-	return (str);
+	return (NULL);
 }
 /*
-#include <stdio.h>
 int	main(void)
 {
 	int	c = 'e';
 	const char	str[] = "teste";
 
-	printf("%d\n%s\n\n", c, ft_strchr(str, c));
-}*/
+	printf("MY: %d\n%s\n\n", c, ft_strchr(str, c));
+	printf("ORIGINAL: %d\n%s\n\n", c, strchr(str, c));
+}
+*/

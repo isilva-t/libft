@@ -1,13 +1,22 @@
 
-FOR TESTING____________________________________
 
+
+
+
+
+#TESTING_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!_!
 $(NAME): $(NAME) 
 	${CC} -o $(NAME) ${CFLAGS} $(SOURCES) 
 	${MSG1}
 	
 	
-FOR SEND_______________________________________________
-
+	
+	
+	
+	
+	
+	
+#DELIVER_____________________________
 $(NAME): $(NAME) 
 	${CC} -c ${CFLAGS} $(SOURCES) 
 	${ARCHIVE} $(NAME) ${OBJECTS}

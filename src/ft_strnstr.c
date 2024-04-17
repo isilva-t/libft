@@ -17,19 +17,20 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!big || !little)
-		return (NULL);
+	if (*little == '\0')
+		return ((char *)big);
 	i = 0;
-	while (big[i] != '\0' && little[j] != '\0' && i < len)
+	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
 		if (big[i] == little[0])
 		{
-			while (big[i + j] == little[j] && (i + j) < len)
+			while ((big[i + j] == little[j]) && ((i + j) < len)
+				&& (big[i + j] != '\0'))
 			{
-				if (little[j + 1] == '\0')
-					return ((char *)big + i);
 				j++;
+				if (little[j] == '\0')
+					return ((char *)big + i);
 			}
 		}
 		i++;
@@ -37,13 +38,19 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 /*
+#include <bsd/string.h>
 #include <stdio.h>
+
 int	main(void)
 {
-	char	big[] = "frase_de_teste";
-	char	little[] = "ase";
+	const char	big[] = "frase_de_teste";
+	const char	little[] = "ase";
+	size_t	len = 5;
 
-	size_t	len = 10;
-
-	printf("\n%s\n%s\n", big, ft_strnstr(big, little, len));
-}*/
+	printf("Big: %s, Len: %lu\n\n", big, len);
+	
+	printf("MY %s\n", ft_strnstr(big, little, len));
+	
+	printf("OR %s\n", strnstr(big, little, len));
+}
+*/

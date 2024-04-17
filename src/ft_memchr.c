@@ -14,14 +14,14 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*res;
+	unsigned char	*res;
 
-	res = (char *)s;
+	res = (unsigned char *)s;
 	if (n == 0)
 		return (NULL);
 	while (n != 0)
 	{
-		if (*res == c)
+		if (*res == (unsigned char)c)
 			return (res);
 		++res;
 		--n;
@@ -34,9 +34,10 @@ int	main(void)
 {
 	char	str[] = "teste131234";
 	int	c = '1';
-	char	*fun;
+	//char	*my_fun;
 	size_t	n = 15;
 
-	fun = (char *)ft_memchr(str, c, n);
-	printf("%s", fun);
+	//my_fun = (char *)ft_memchr(str, c, n);
+	printf("MY %s\n", (char *)ft_memchr(str, c, n));
+	printf("OR %s\n", (char *)memchr(str, c, n));
 }*/

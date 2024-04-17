@@ -14,30 +14,29 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	auto char *str;
-	auto int i;
+	char	*str;
+	int		i;
+
 	str = (char *)s;
-	i = 0;
-	while (s[i] != '\0')
+	i = (int)ft_strlen(str);
+	if ((char) c == '\0')
+		return ((void *)s + ft_strlen(s));
+	while (i >= 0)
 	{
-		str++;
-		i++;
-	}
-	while (*str != c)
-	{
-		if (i == -1)
-			return (NULL);
-		str--;
+		if (str[i] == (char)c)
+			return (str + i);
 		i--;
 	}
-	return (str);
+	return (NULL);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	int	c = 'a';
-	const char	str[] = "pabecedario";
+	int	c = 't';
+	const char	str[] = "teste";
+	//const char	str[] = "user_output_test05";
 
-	printf("%d\n%s\n\n", c, ft_strrchr(str, c));
+	printf("\nMY: %d\n%s\n\n", c, ft_strrchr(str, c));
+	printf("ORIGINAL: %d\n%s\n\n", c, strrchr(str, c));	
 }*/

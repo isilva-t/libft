@@ -15,14 +15,14 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
+#include <bsd/string.h>
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac != 2)
-	{
-		printf(" number of arguments incorrect, try again!");
-		return (0);
-	}
-	printf("MY:	%d\n", ft_atoi(&av[1][0]));
-	printf("ORIGINAL: %d\n", atoi(&av[1][0]));
+	//char c[] = "123456789abcdef";
+
+	//printf("OR %s\n", strdup((void*)0));
+	printf("MY %s\n", ft_strdup((void*)0));
 }
+
