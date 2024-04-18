@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 15:08:36 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/16 13:16:17 by isilva-t         ###   ########.fr       */
+/*   Created: 2024/04/18 09:30:56 by isilva-t          #+#    #+#             */
+/*   Updated: 2024/04/18 09:51:23 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+
+	size = size * nmemb;
+	if (!(ptr = malloc(size)))
+			return (NULL);
+	ft_bzero(ptr, size);
+	return (ptr);
+}
+/*
 #include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
-#include <bsd/string.h>
-
 int	main(void)
 {
-	//char c[] = "123456789abcdef";
-
-	//printf("OR %s\n", strdup((void*)0));
-	printf("MY %s\n", ft_strdup((void*)0));
+	size_t	nmemb;
+	size_t	size;
+	char	*ptr;
+	
+	nmemb = 5;
+	size = 2;
+	
+	printf("before ft_calloc");
+	
+	ptr = (char *)ft_calloc(nmemb, size);
+	printf("\nprint ptr: %c\n(visible 'A', must be ok!)", (ptr[0] + 'A'));
 }
-
+*/
+	
