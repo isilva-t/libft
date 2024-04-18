@@ -21,7 +21,9 @@ SOURCES = \
 	ft_toupper.c ft_tolower.c ft_strchr.c \
 	ft_strrchr.c ft_strncmp.c ft_memchr.c \
 	ft_memcmp.c ft_strnstr.c ft_atoi.c \
-	ft_calloc.c ft_strdup.c main.c #ATENCAO QUE ESTA AQUI COMENTADO, OLHA PARA AQUI!!!!!!!!!!!
+	ft_calloc.c ft_strdup.c \
+	ft_substr.c ft_strjoin.c ft_strtrim.c \
+	main.c #ATENCAO QUE ESTA AQUI COMENTADO, OLHA PARA AQUI!!!!!!!!!!!
 
 OBJECTS = ${SOURCES:.c=.o}
 NAME = libft.a
@@ -34,7 +36,7 @@ $(NAME): $(NAME)
 	${CC} -c ${CFLAGS} $(SOURCES) 
 	${ARCHIVE} $(NAME) ${OBJECTS}
 	${MSG1}
-
+	
 all: ${NAME}
 
 clean:

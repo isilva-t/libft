@@ -18,17 +18,12 @@
 #include <string.h>
 #include <bsd/string.h>
 
-int	main(void)
+
+int     main(void)
 {
-	size_t	nmemb;
-	size_t	size;
-	char	*ptr;
-	
-	nmemb = 5;
-	size = 2;
-	
-	printf("before ft_calloc");
-	
-	ptr = (char *)ft_calloc(nmemb, size);
-	printf("\nprint ptr: %c\n(visible 'A', must be ok!)", (ptr[0] + 'A'));
+        const char      s1[] = "lorem ipsum dolor sit amet";
+        const char      set[] = "te";
+
+        printf("%s", ft_strtrim(s1, set));
 }
+

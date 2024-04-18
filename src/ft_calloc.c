@@ -16,10 +16,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
-	size = size * nmemb;
-	if (!(ptr = malloc(size)))
-			return (NULL);
-	ft_bzero(ptr, size);
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
 /*
@@ -37,6 +37,4 @@ int	main(void)
 	
 	ptr = (char *)ft_calloc(nmemb, size);
 	printf("\nprint ptr: %c\n(visible 'A', must be ok!)", (ptr[0] + 'A'));
-}
-*/
-	
+}*/
