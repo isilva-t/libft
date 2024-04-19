@@ -19,11 +19,12 @@
 #include <bsd/string.h>
 
 
-int     main(void)
+int	main(void)
 {
-        const char      s1[] = "lorem ipsum dolor sit amet";
-        const char      set[] = "te";
+	int	c = 'e';
+	const char	str[] = "teste";
 
-        printf("%s", ft_strtrim(s1, set));
+	printf("MY: %d\n%s\n\n", c, ft_strchr(str, c));
+	printf("ORIGINAL: %d\n%s\n\n", c, strchr(str, c));
 }
 

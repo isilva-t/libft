@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+verifica se ha uma ou outra, ou null
+
+verifica o local final do array grande
+
+verifica o inicio da palavra se tem o set de caracteres strchr e incrementa contador
+
+caso contador se torne maior que o final
+	retorna strdup vazio
+	
+verifica o final da palavra se tem o set de caracteres
+
+aloca memoria para a str necessaria
+
+e copia uma string para a outra com strlcpy

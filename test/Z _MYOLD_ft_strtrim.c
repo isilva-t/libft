@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isilva-t <isilva-t@students.42porto.com>   +#+  +:+       +#+        */
+/*   By: isilva-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 12:46:14 by isilva-t          #+#    #+#             */
-/*   Updated: 2024/04/19 14:31:32 by isilva-t         ###   ########.fr       */
+/*   Created: 2024/04/18 13:29:26 by isilva-t          #+#    #+#             */
+/*   Updated: 2024/04/19 08:33:09 by isilva-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,46 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	auto int beg = 0, len, i = 0;
-	auto char *str;
+	int tab[256] = {0};
+	int	beg;
+	int	end;
+	int	i;
+	int	j;
+	char	*array;
+
 	if (!s1 || !set)
-		return (NULL);
-	len = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[beg]) && beg <= len)
-		beg++;
-	if (beg > len)
-		return (ft_strdup(""));
-	while (ft_strchr(set, s1[len]))
-		len--;
-	str = malloc(sizeof(char) * len - beg + 2);
-	if (!str)
-		return (NULL);
-	while (beg <= len)
+		return (NULL);	
+	i = 0;
+	while (set[i] != '\0')
 	{
-		str[i] = s1[beg];
-		beg++;
+		tab[(int)set[i]] = (int)set[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	beg = 0;
+	while (s1[beg] == (char)tab[(int)s1[beg]])
+		beg++;
+	end = ft_strlen(s1);
+	while (s1[end] == (char)tab[(int)s1[end]])
+		end--;
+	i = end - beg;
+	// memory alloc in this ft
+	array = malloc(sizeof(char) * i + 2);
+	if (!array)
+		return (NULL);
+	// strlcpy
+	j = 0;
+	while (j <= i)
+		array[j++] = s1[beg++];
+	array[j] = '\0';
+	
+	return (array);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	const char	s1[] = "12abcdef12";
+	const char	s1[] = "1234521";
 	const char	set[] = "12";
-	char *fr;
 
-	printf("%s, %s\n", s1, set);
-	fr = ft_strtrim(s1, set);
-
-	printf("%s\n", fr);
-
-	free (fr);
+	ft_strtrim(s1, set);
 }*/

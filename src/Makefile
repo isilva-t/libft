@@ -13,8 +13,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I.
 
-SOURCES = \
-	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
+SOURCES = ft_isalpha.c ft_isdigit.c  ft_isalnum.c \
 	ft_isascii.c ft_isprint.c ft_strlen.c \
 	ft_memset.c ft_bzero.c ft_memcpy.c \
 	ft_memmove.c ft_strlcpy.c ft_strlcat.c \
@@ -22,8 +21,7 @@ SOURCES = \
 	ft_strrchr.c ft_strncmp.c ft_memchr.c \
 	ft_memcmp.c ft_strnstr.c ft_atoi.c \
 	ft_calloc.c ft_strdup.c \
-	ft_substr.c ft_strjoin.c ft_strtrim.c \
-	main.c #ATENCAO QUE ESTA AQUI COMENTADO, OLHA PARA AQUI!!!!!!!!!!!
+	ft_substr.c ft_strjoin.c ft_strtrim.c
 
 OBJECTS = ${SOURCES:.c=.o}
 NAME = libft.a
@@ -31,11 +29,13 @@ ARCHIVE = ar -rc
 MSG1 = @echo "Compiled!"
 MSG2 = @echo "Cleaned!"
 
-#DELIVER_____________________________
 $(NAME): $(NAME) 
 	${CC} -c ${CFLAGS} $(SOURCES) 
 	${ARCHIVE} $(NAME) ${OBJECTS}
 	${MSG1}
+te: 
+	cc $(SOURCES)
+	@echo "\n______Test_Compiled_!_____\n"
 	
 all: ${NAME}
 
@@ -49,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re 
+.PHONY: all, clean, fclean, re ,te
