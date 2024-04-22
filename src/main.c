@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -18,13 +18,19 @@
 #include <string.h>
 #include <bsd/string.h>
 
-
 int	main(void)
 {
-	int	c = 'e';
-	const char	str[] = "teste";
+	char	*str = " teste ft_split ";
+	char	c = ' ';
+	size_t	i; 
+	
+	i = count_words(str, c);
 
-	printf("MY: %d\n%s\n\n", c, ft_strchr(str, c));
-	printf("ORIGINAL: %d\n%s\n\n", c, strchr(str, c));
+	printf("%s \n\n", str);
+	while (i > 0)
+	{
+	printf("%s\n", (ft_split(str, c))[i]);
+		i--;
+	}
 }
 
