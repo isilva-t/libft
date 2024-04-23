@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static size_t	count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
-	size_t	i;
-	size_t	count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -29,27 +28,39 @@ static size_t	count_words(const char *s, char c)
 				i++;
 		}
 		else if (*(s + i) == c)
-		i++;
+			i++;
 	}
 	return (count);
 }
 
-static size_t	get_len(const char *s, char c)
+static int	get_len(const char *s, char c)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
-	while ((s + len) && *(s + len) != c)
+	while (*(s + len) && *(s + len) != c)
+	{
 		len++;
+	}
 	return (len);
 }
 
-char	**split(char const *s, char c, char **array, size_t n_words)
+void	free_mem(int in_word, char **array)
 {
-	size_t	in_word;
-	size_t	on_char;
+	while (in_word >= 0)
+	{
+		free(*(array + in_word));
+		in_word--;
+	}
+	free(array);
+}
 
-	in_word= 0;
+char	**split(char const *s, char c, char **array, int n_words)
+{
+	int	in_word;
+	int	on_char;
+
+	in_word = 0;
 	on_char = 0;
 	while (in_word < n_words)
 	{
@@ -58,14 +69,13 @@ char	**split(char const *s, char c, char **array, size_t n_words)
 		*(array + in_word) = ft_substr(s, on_char, get_len((s + on_char), c));
 		if (!*(array + in_word))
 		{
-			//para fazer o FREE AQUI, FALTA A FT
+			free_mem(in_word, array);
 			return (NULL);
 		}
 		while (*(s + on_char) && *(s + on_char) != c)
 		{
 			on_char++;
 		}
-		printf("%s\n", *(array + in_word));
 		in_word++;
 	}
 	*(array + in_word) = NULL;
@@ -74,47 +84,54 @@ char	**split(char const *s, char c, char **array, size_t n_words)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	n_words;
+	int		n_words;
 	char	**array;
 
 	n_words = count_words(s, c);
 	if (!s)
 		return (NULL);
-	array = (char **)malloc(sizeof(char*) * (n_words + 1));
+	array = (char **)malloc(sizeof(char *) * (n_words + 1));
 	if (!array)
 		return (NULL);
 	array = split(s, c, array, n_words);
 	return (array);
 }
-/*
+/*//TEST FT_SPLIT
 int	main(void)
 {
-	char const	*str = " teste ft_split vamos a isso! ";
-	char	c = ' ';
+	char	*str = ft_strdup(" vamos la testar ");
+    char	c = ' ';
+	char	**array;
+	int	i = 0;
 
-	printf("%s \n\n", str);
-	ft_split(str, c);
+    printf("%s\n\n", str);
+	printf("nr palavras: %d\n", count_words(str, c));
+    array = ft_split(str, c);
+	while (i < count_words(str, c))
+	{
+		printf("%s \n", *(array + i));
+		i++;
+	}
+	free_mem((count_words(str, c) - 1), array);
+  free (str);
+	return (0);
 }*/
-
-
-//TEST get_len 
+// TEST get_len
 /*#include <stdio.h>
 int	main(void)
 {
-	char	*str = "vamos testar get len";
-	char	c = ' ';
+        char	*str = "vamos testar get len";
+        char	c = ' ';
 
-	printf("%s\n%c\nresult: %zd\n", str, c, get_len(str, c));
+        printf("%s\n%c\nresult: %zd\n", str, c, get_len(str, c));
 }*/
-
-
-//TEST COUNT_WORDS
+// TEST COUNT_WORDS
 /*
 #include <stdio.h>
 int	main(void)
 {
-	char	*str = " eu tenho bolachas, queres? ";
-	char	c = ' ';
+        char	*str = " eu tenho bolachas, queres? ";
+        char	c = ' ';
 
-	printf("%s\nNr palavras: %zu\n", str, count_words(str, c));
+        printf("%s\nNr palavras: %zu\n", str, count_words(str, c));
 }*/

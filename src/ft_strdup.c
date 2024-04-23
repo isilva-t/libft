@@ -42,5 +42,4 @@ int	main(void)
 	
 	printf("______My FT_____\n");
 	printf("%s\n", ft_strdup(c));
-}
-*/
+}*/
