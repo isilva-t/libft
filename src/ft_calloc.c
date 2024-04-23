@@ -36,5 +36,6 @@ int	main(void)
 	printf("before ft_calloc");
 	
 	ptr = (char *)ft_calloc(nmemb, size);
-	printf("\nprint ptr: %c\n(visible 'A', must be ok!)", (ptr[0] + 'A'));
+	printf("\nprint ptr: %c\n(visible 'A', must be ok!)\n", (ptr[0] + 'A'));
+	free (ptr);
 }*/

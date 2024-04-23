@@ -36,12 +36,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	substr[i] = '\0';
 	return (substr);
 }
-
 /*
+#include <stdio.h>
 int     main(void)
 {
 	const char s1[] = "teste";
 	const char s2[] = "12345";
+	char	*str;
 	printf("%s\n%s\n", s1, s2);
-	printf("%s\n", ft_strjoin(s1, s2));
+	str = ft_strjoin(s1, s2);
+	printf("%s\n", str);
+	free(str);
 }*/

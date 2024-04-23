@@ -35,13 +35,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 }
 /*
 #include <stdio.h>
-
 int     main(void)
 {
-        const char s[] = "abcdefgh";
-        unsigned int    start = 2;
-        size_t  len = 5;        
+    const char s[] = "abcdefgh";
+	char	*str;
+    unsigned int    start = 2;
+    size_t  len = 5;        
 
-        printf("____________ft_substr___________\n");
-        printf("	%s\nend ft!\n", ft_substr(s, start, len));
+    printf("____________ft_substr___________\n");
+	str = ft_substr(s, start, len);
+	printf("	%s\nend ft!\n", str);
+	free (str);
 }*/

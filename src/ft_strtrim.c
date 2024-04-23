@@ -49,8 +49,6 @@ int	main(void)
 
 	printf("%s, %s\n", s1, set);
 	fr = ft_strtrim(s1, set);
-
 	printf("%s\n", fr);
-
 	free (fr);
 }*/

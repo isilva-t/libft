@@ -36,10 +36,14 @@ char	*ft_strdup(const char *s)
 int	main(void)
 {
 	char c[] = "123456789abcdef";
-	
+	char	*orig_ft, *my_ft;	
 	printf("\n____Original FT____\n");	
-	printf("%s\n\n", strdup(c));
+	orig_ft = strdup(c);
+	printf("%s\n\n", orig_ft);
 	
 	printf("______My FT_____\n");
-	printf("%s\n", ft_strdup(c));
+	my_ft = ft_strdup(c);
+	printf("%s\n", my_ft);
+	free(orig_ft);
+	free(my_ft);
 }*/
