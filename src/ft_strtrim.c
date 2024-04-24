@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-#include <stdio.h>
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	auto int beg = 0, len, i = 0;
