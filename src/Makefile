@@ -24,9 +24,14 @@ SOURCES = ft_isalpha.c ft_isdigit.c  ft_isalnum.c \
 	ft_substr.c ft_strjoin.c ft_strtrim.c \
 	ft_split.c ft_itoa.c ft_strmapi.c \
 	ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
-	ft_putendl_fd.c ft_putnbr_fd.c
+	ft_putendl_fd.c ft_putnbr_fd.c \
+	
+BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+	ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+	ft_lstclear.c ft_lstiter.c
 	
 OBJECTS = ${SOURCES:.c=.o}
+BONUS_OBJECTS = ${BONUS:.c=.o}
 NAME = libft.a
 ARCHIVE = ar -rc
 MSG1 = @echo "Compiled!"
@@ -37,10 +42,17 @@ $(NAME): $(NAME)
 	${ARCHIVE} $(NAME) ${OBJECTS}
 	${MSG1}
 	
-bonus:	
+bonus:	 $(NAME) 
+	${CC} -c ${CFLAGS} $(BONUS) 
+	${ARCHIVE} $(NAME) ${BONUS_OBJECTS}
+	${MSG1}
 
-te: 
+so: 
 	cc $(SOURCES)
+	@echo "\n______Test_Compiled_!_____\n"
+
+bo:
+	cc $(BONUS) $(SOURCES)
 	@echo "\n______Test_Compiled_!_____\n"
 	
 all: ${NAME}
