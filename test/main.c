@@ -10,22 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+
 #include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+#include <bsd/string.h>
 
 int	main(void)
 {
-	const char src[] = "12345";
-	char ost[] = "destino_com_";
-	size_t size;
+	char	*str = " teste ft_split ";
+	char	c = ' ';
+	size_t	i; 
 	
-	size = 20;
+	i = count_words(str, c);
 
-	printf("variavel src 	    : %s\nvariavel dst inicial: %s\n", src, ost);
-	
-	printf("\nreturn da ORIGINAL strlcat: %u\n", strlcat(ost, src, size));
-
-	
-	printf("variavel dst depois ORIGINAL: %s\n", ost);
-
+	printf("%s \n\n", str);
+	while (i > 0)
+	{
+	printf("%s\n", (ft_split(str, c))[i]);
+		i--;
+	}
 }
+

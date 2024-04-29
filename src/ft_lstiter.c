@@ -15,28 +15,18 @@
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (!lst || !f)
-		return;
+		return ;
 	while (lst)
 	{
 		f(lst->content);
 		lst = lst->next;
 	}
 }
-// A FUNCAO ACIMA PASSA NA FRANCINETTE, MAS EU PRECISO SABER TESTAR
+/*
 #include <stdio.h>
-static void	print_list(t_list *lst)
+static void	print_cont(void *cont)
 {
-	printf("result:\n");
-	while (lst)
-	{
-		printf("%s\n", (char *)lst->content);
-		lst = lst->next;
-	}
-}
-// NECESSARIO ENTENDER PORQUE ESTA PORCARIA NAO FUNCIONA
-void	f(void *cont)
-{
-	cont = "ja foste";
+	printf("%s\n", (char *)cont);
 }
 
 static void	fun_test(void *lst)
@@ -52,21 +42,13 @@ int	main(void)
 	t_list	*new;
 	t_list	*temp;
 
-	lst = ft_lstnew("teste_1");
-	lst->next = ft_lstnew("teste_2");
-
-	printf("1\n");
-
-	ft_lstiter(lst, (void *)f);
-
-	printf("2\n");
-
-	print_list(lst); //QUANDO CHAMA ESTA FUNCAO, VERIFICO QUE NADA FOI ALTERADO
-	test = &lst;
+	lst = ft_lstnew("content 1");
+	lst->next = ft_lstnew("content 2");
 	
-	printf("3\n");
+	ft_lstiter(lst, print_cont);
+
+	test = &lst;
 
 	ft_lstclear(test, fun_test);
 	printf("must be freed!!\n");
-}
-
+}*/
