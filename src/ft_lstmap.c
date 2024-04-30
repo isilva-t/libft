@@ -14,18 +14,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*ret_list;
-	t_list	*current;
-
+	auto t_list * ret_list, *current;
+	auto int i = 0;
 	if (!lst || !f || !del)
 		return (NULL);
-	current = ft_lstnew(f(lst->content));
-	if (!current)
-		return (NULL);
-	ret_list = current;
-	lst = lst->next;
 	while (lst)
 	{
+		if (i++ == 0)
+		{
+			current = ft_lstnew(f(lst->content));
+			if (!current)
+				return (NULL);
+			ret_list = current;
+			lst = lst->next;
+		}
 		current->next = ft_lstnew(f(lst->content));
 		if (!current->next)
 		{
@@ -38,8 +40,36 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	current->next = NULL;
 	return (ret_list);
 }
+/*
+#include <stdio.h>
+static void	*print_fun(void *cont)
+{
+	printf("print_fun %s\n", (char *)cont);
+	return (cont);
+}
+
+static void	del(void *lst)
+{
+	lst = NULL;
+	printf("del ok!\n");
+}
 
 int	main(void)
 {
+	t_list	*lst;
+	t_list	*to_free;
+	t_list *temp;
 
-}
+	lst = ft_lstnew("content 1");
+	lst->next = ft_lstnew("content 2");
+	printf ("lst created;\n");
+
+	to_free = ft_lstmap(lst, print_fun, del);
+	printf ("ft_lstmap returned;\n");
+
+	ft_lstclear(&to_free, del);
+	printf("to_free free!\n");
+	ft_lstclear(&lst, del);
+	printf("lst free. END!!\n");
+	return (0);
+}*/
