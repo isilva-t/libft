@@ -10,9 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I.
-
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 SOURCES = ft_isalpha.c ft_isdigit.c  ft_isalnum.c \
 	ft_isascii.c ft_isprint.c ft_strlen.c \
 	ft_memset.c ft_bzero.c ft_memcpy.c \
@@ -25,46 +24,47 @@ SOURCES = ft_isalpha.c ft_isdigit.c  ft_isalnum.c \
 	ft_split.c ft_itoa.c ft_strmapi.c \
 	ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c
-	
 BONUS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 	ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 	ft_lstclear.c ft_lstiter.c ft_lstmap.c
-	
 OBJECTS = ${SOURCES:.c=.o}
 BONUS_OBJECTS = ${BONUS:.c=.o}
-NAME = libft.a
-ARCHIVE = ar -rc
-MSG1 = @echo "Compiled!"
-MSG2 = @echo "Cleaned!"
 
-$(NAME): $(NAME) 
+NAME = libft.a
+ARCHIVE = ar -rcs
+
+MSG1 = @echo "________ Compiled Mandatory files!"
+MSG2 = @echo "________ Compiled Bonus files!"
+MSG3 = @echo "___________ Cleared!"
+MSG4 = @echo "_______________ Full Cleared!"
+
+$(NAME):
 	${CC} -c ${CFLAGS} $(SOURCES) 
 	${ARCHIVE} $(NAME) ${OBJECTS}
 	${MSG1}
 	
-bonus:	$(NAME) 
+bonus: $(NAME)
 	${CC} -c ${CFLAGS} $(BONUS) 
-	${ARCHIVE} $(NAME) ${OBJECTS} ${BONUS_OBJECTS}
-	${MSG1}
+	${ARCHIVE} $(NAME) ${BONUS_OBJECTS}
+	${MSG2}
 
-so: 
+ma: 
 	cc $(SOURCES)
-	@echo "\n______Test_Compiled_!_____\n"
-
+	@echo "\n______Test_Compiled_!\n"
 bo:
 	cc $(BONUS) $(SOURCES)
-	@echo "\n______Test_Compiled_!_____\n"
+	@echo "\n______Bonus_Test_Compiled_!\n"
 	
 all: ${NAME}
 
 clean:
 	@rm -rf ${OBJECTS} ${BONUS_OBJECTS}
-	${MSG2}
+	${MSG3}
 
 fclean: clean
 	@rm -rf ${NAME}
-	${MSG2}
+	${MSG4}
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, so, bo
+.PHONY: all bonus clean fclean re so bo

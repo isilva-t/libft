@@ -15,19 +15,18 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	auto t_list * ret_list, *current;
-	auto int i = 0;
 	if (!lst || !f || !del)
 		return (NULL);
+	current = ft_lstnew(f(lst->content));
+	if (!current)
+	{
+		ft_lstclear(&current, del);
+		return (NULL);
+	}
+	ret_list = current;
+	lst = lst->next;
 	while (lst)
 	{
-		if (i++ == 0)
-		{
-			current = ft_lstnew(f(lst->content));
-			if (!current)
-				return (NULL);
-			ret_list = current;
-			lst = lst->next;
-		}
 		current->next = ft_lstnew(f(lst->content));
 		if (!current->next)
 		{
@@ -68,8 +67,8 @@ int	main(void)
 	printf ("ft_lstmap returned;\n");
 
 	ft_lstclear(&to_free, del);
-	printf("to_free free!\n");
+	printf("to_free freed!\n");
 	ft_lstclear(&lst, del);
-	printf("lst free. END!!\n");
+	printf("lst freed. END!!\n");
 	return (0);
 }*/
